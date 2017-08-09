@@ -36,6 +36,12 @@
     <PackageReference Include="Microsoft.Diagnostics.Tracing.TraceEvent">
       <Version>$(MicrosoftDiagnosticsTracingLibraryVersion)</Version>
     </PackageReference>
+    <PackageReference Include="CommandLineParser">
+      <Version>$(CommandLineParserVersion)</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.3rdpartytools.MarkdownLog">
+      <Version>$(MarkdownLogVersion)</Version>
+    </PackageReference>
     <PackageReference Include="Newtonsoft.Json">
       <Version>9.0.1</Version>
     </PackageReference>
@@ -65,6 +71,8 @@
     <PackageToInclude Include="xunit.performance.execution"/>
     <PackageToInclude Include="xunit.performance.metrics"/>
     <PackageToInclude Include="Microsoft.Diagnostics.Tracing.TraceEvent"/>
+    <PackageToInclude Include="CommandLineParser" />
+    <PackageToInclude Include="Microsoft.3rdpartytools.MarkdownLog" />
     <PackageToInclude Include="Newtonsoft.Json"/>
     <PackageToInclude Include="Microsoft.CodeAnalysis.Analyzers"/>
     <PackageToInclude Include="Microsoft.CodeAnalysis.Common"/>
