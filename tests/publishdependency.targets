@@ -33,6 +33,7 @@
   <ItemGroup>
     <CrossGenFiles Include="..\packages\runtime.$(TargetRid).Microsoft.NETCore.Runtime.CoreCLR\$(DesiredPackageVersionArg)\tools\crossgen*"/>
     <VCRuntimeFiles Include="..\packages\vc-runtime\$(VCRuntimeVersion)\lib\netcoreapp1.1\*.dll"/>
+    <TraceEventNativeFiles Include="..\packages\microsoft.diagnostics.tracing.traceevent\$(MicrosoftDiagnosticsTracingLibraryVersion)\lib\native\**\*.*" />
   </ItemGroup>
 
   <PropertyGroup>
@@ -166,6 +167,23 @@
 
     <Copy
       SourceFiles="@(VCRuntimeFiles)"
+      DestinationFolder="$(CORE_ROOT)"
+      SkipUnchangedFiles="$(SkipCopyUnchangedFiles)"
+      OverwriteReadOnlyFiles="$(OverwriteReadOnlyFiles)"
+      Retries="$(CopyRetryCount)"
+      RetryDelayMilliseconds="$(CopyRetryDelayMilliseconds)"
+      UseHardlinksIfPossible="$(CreateHardLinksForCopyFilesToOutputDirectoryIfPossible)">
+      <Output TaskParameter="DestinationFiles" ItemName="FileWrites" />
+    </Copy>
+
+  </Target>
+
+  <Target Name="CopyTraceEventNativeFilesToCoreRoot"
+    AfterTargets="CopyDependecyToCoreRoot"
+    Outputs="$(CORE_ROOT)\*.*">
+
+    <Copy
+      SourceFiles="@(TraceEventNativeFiles)"
       DestinationFolder="$(CORE_ROOT)"
       SkipUnchangedFiles="$(SkipCopyUnchangedFiles)"
       OverwriteReadOnlyFiles="$(OverwriteReadOnlyFiles)"
