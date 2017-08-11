@@ -35,6 +35,7 @@
     </PackageReference>
     <PackageReference Include="Microsoft.Diagnostics.Tracing.TraceEvent">
       <Version>$(MicrosoftDiagnosticsTracingLibraryVersion)</Version>
+      <IncludeAssets>All</IncludeAssets>
     </PackageReference>
     <PackageReference Include="CommandLineParser">
       <Version>$(CommandLineParserVersion)</Version>
